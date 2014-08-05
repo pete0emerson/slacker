@@ -4,7 +4,9 @@ Slacker is a simple python class and CLI that makes sending a
 [Slack](http://www.slack.com) Incoming WebHook easy. The class takes its
 configuration from environment variables, configuration file(s), or passed in
 arguments. The CLI is a small wrapper around the class that parses the command
-line arguments to initialize the class and then sends a message.
+line arguments to initialize the class and then sends a message. Under the hood,
+it leverages python's `requests` module to talk to the Slack WebHook. After that,
+it's just adding in a couple of ways to manage configuration.
 
 # Installation
 
