@@ -59,6 +59,11 @@ class Slackhook:
 
   def __init__(self, config_files=None, company=None, token=None, channel=None, username=None, icon=None):
     # Precidence order is command argument > ENV variable > file
+    self.company = None
+    self.token = None
+    self.channel = None
+    self.username = None
+    self.icon = None
     for config_file in config_files:
       self._load_config(config_file)
     self._load_env_vars()
@@ -68,6 +73,16 @@ class Slackhook:
         self._set_element(element, value)
 
   def send(self, message):
+    if not self.token:
+      return 1, 'No token set.'
+    if not self.channel:
+      return 1, 'No channel set.'
+    if not self.username:
+      return 1, 'No username set.'
+    if not self.icon:
+      return 1, 'No icon set.'
+    if not message:
+      return 1, 'No message set.'
     params = {'token':self.token}
     payload = {'channel':self.channel, 'username':self.username, 'icon_emoji':self.icon, 'text':message}
     r = requests.post(self.url, params=params, data=json.dumps(payload))
