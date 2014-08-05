@@ -19,7 +19,7 @@ setup(
     url = "http://foo/slacker",
     packages=['lib'],
     scripts=['bin/slacker'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: MIT License",
