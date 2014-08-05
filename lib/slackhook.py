@@ -6,7 +6,7 @@ import json
 import os
 import sys
 
-class Slacker:
+class Slackhook:
 
   def _set_element(self, element, value):
     # This automagically calls the right self.set_{ELEMENT}
@@ -20,10 +20,10 @@ class Slacker:
       return
     config = ConfigParser.ConfigParser()
     config.read(config_file)
-    options = config.options('slacker')
+    options = config.options('slackhook')
     for element in ['username', 'company', 'token', 'channel', 'icon']:
       if element in options:
-        self._set_element(element, config.get('slacker', element))
+        self._set_element(element, config.get('slackhook', element))
 
   def _load_env_vars(self):
     if 'SLACK_COMPANY' in os.environ:

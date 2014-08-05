@@ -3,7 +3,7 @@
 import os
 import sys
 import argparse
-import slacker
+import slackhook
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Slack CLI to Incoming WebHook', epilog='The following environment variables may be also used: SLACK_COMPANY, SLACK_TOKEN, SLACK_CHANNEL, SLACK_USERNAME, SLACK_ICON')
@@ -17,13 +17,13 @@ if __name__ == '__main__':
 
   args = parser.parse_args()
   if not args.config:
-    args.config = ['~/.slacker.cfg', './.slacker.cfg']
+    args.config = ['~/.slackhook.cfg', './.slackhook.cfg']
   else:
     for config_file in args.config:
       if not os.access(config_file, os.R_OK):
         print config_file, 'is not a readable file.'
         sys.exit(1)
-  s = slacker.Slacker(company=args.company, channel=args.channel, username=args.username, icon=args.icon, token=args.token, config_files=args.config)
+  s = slackhook.Slackhook(company=args.company, channel=args.channel, username=args.username, icon=args.icon, token=args.token, config_files=args.config)
   status, content = s.send(args.message)
   if status == 200:
     sys.exit(0)

@@ -1,6 +1,6 @@
-# Copy this file to ~/.slacker.cfg and edit appropriately
+# Copy this file to ~/.slackhook.cfg and edit appropriately
 
-[slacker]
+[slackhook]
 username=my_clever_username
 company=company_name
 token=this_is_your_integration_token

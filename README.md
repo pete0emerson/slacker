@@ -1,6 +1,6 @@
 # Introduction
 
-Slacker is a simple python class and CLI that makes sending a
+Slackhook is a simple python class and CLI that makes sending a
 [Slack](http://www.slack.com) Incoming WebHook easy. The class takes its
 configuration from environment variables, configuration file(s), or passed in
 arguments. The CLI is a small wrapper around the class that parses the command
@@ -10,15 +10,15 @@ it's just adding in a couple of ways to manage configuration.
 
 # Installation
 
-    $ git clone https://github.com/pete0emerson/slacker.git
-    $ cd slacker
+    $ git clone https://github.com/pete0emerson/slackhook.git
+    $ cd slackhook
     $ python setup.py install
 
 # Configuration
 
 ## Environment variables
 
-Slacker will load configuration variables from environment variables. Slacker
+Slackhook will load configuration variables from environment variables. Slackhook
 environment variables are:
 
     SLACK_COMPANY
@@ -29,11 +29,11 @@ environment variables are:
 
 ## Configuration file(s)
 
-Slacker will also load configuration variables from files. The CLI by default
-will try to load `~/.slacker.cfg` and `./.slacker.cfg` by default. Here is a
-sample .slacker.cfg file:
+Slackhook will also load configuration variables from files. The CLI by default
+will try to load `~/.slackhook.cfg` and `./.slackhook.cfg` by default. Here is a
+sample .slackhook.cfg file:
 
-    [slacker]
+    [slackhook]
     username=my_clever_username
     company=company_name
     token=this_is_your_integration_token
@@ -42,19 +42,19 @@ sample .slacker.cfg file:
 
 # Class Usage
 
-The slacker [binary](bin/slacker) is very simple and is a good example to
-follow. Here's the simplest slacker example, which assumes that configuration
+The slackhook [binary](bin/slackhook) is very simple and is a good example to
+follow. Here's the simplest slackhook example, which assumes that configuration
 has been done either via environment variables or a configuration file.
 
-    import slacker
+    import slackhook
 
-    s = slacker.Slacker()
+    s = slackhook.Slackhook()
     status, content = s.send('Hello, World!')
 
 # CLI Help
 
-    $ slacker --help
-    usage: slacker [-h] [--config CONFIG] [--company COMPANY] [--channel CHANNEL]
+    $ slackhook --help
+    usage: slackhook [-h] [--config CONFIG] [--company COMPANY] [--channel CHANNEL]
                    [--token TOKEN] [--username USERNAME] [--icon ICON] --message
                    MESSAGE
 
@@ -81,6 +81,6 @@ has been done either via environment variables or a configuration file.
 
 # Example CLI usage
 
-    $ slacker -m 'Hello, world' # Assumes conf file or ENV variables have been set
-    $ slacker --company my_company --channel general --token aICln0wZDfQrhM2Jam2Hy3s2 --username mybot --icon ghost --message 'Hello, World!'
-    $ SLACK_CHANNEL=general slacker -m 'Use environment variables, too!'
+    $ slackhook -m 'Hello, world' # Assumes conf file or ENV variables have been set
+    $ slackhook --company my_company --channel general --token aICln0wZDfQrhM2Jam2Hy3s2 --username mybot --icon ghost --message 'Hello, World!'
+    $ SLACK_CHANNEL=general slackhook -m 'Use environment variables, too!'

@@ -9,16 +9,16 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name = "slacker",
+    name = "slackhook",
     version = "0.0.1",
     author = "Pete Emerson",
     author_email = "pete@theemersons.org",
     description = ("A Slack module and CLI"),
     license = "MIT",
     keywords = "slack module API",
-    url = "http://foo/slacker",
+    url = "http://foo/slackhook",
     packages=['lib'],
-    scripts=['bin/slacker'],
+    scripts=['bin/slackhook'],
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
