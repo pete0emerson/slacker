@@ -6,18 +6,6 @@ import argparse
 import slacker
 
 if __name__ == '__main__':
-  summary = """
-  one
-
-  two
-
-  three
-
-
-foo
-bar
-baz
-"""
   parser = argparse.ArgumentParser(description='Slack CLI to Incoming WebHook', epilog='The following environment variables may be also used: SLACK_COMPANY, SLACK_TOKEN, SLACK_CHANNEL, SLACK_USERNAME, SLACK_ICON')
   parser.add_argument('--config', '-c', type=str, help='Config file(s)', action='append')
   parser.add_argument('--company', '-co', type=str, help='Company')
