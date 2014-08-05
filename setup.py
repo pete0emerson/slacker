@@ -17,7 +17,7 @@ setup(
     license = "MIT",
     keywords = "slack module API",
     url = "http://foo/slacker",
-    packages=['slacker'],
+    packages=['lib'],
     scripts=['bin/slacker'],
     long_description=read('README'),
     classifiers=[
