@@ -1,8 +1,10 @@
 # Introduction
 
-Slacker is a simple python class and CLI that makes sending a [Slack](http://www.slack.com) Incoming WebHook easy.
-The class takes its configuration from environment variables, configuration file(s), or passed in arguments. The CLI
-is a small wrapper around the class that parses the command line arguments to initialize the class and then sends a message.
+Slacker is a simple python class and CLI that makes sending a
+[Slack](http://www.slack.com) Incoming WebHook easy. The class takes its
+configuration from environment variables, configuration file(s), or passed in
+arguments. The CLI is a small wrapper around the class that parses the command
+line arguments to initialize the class and then sends a message.
 
 # Installation
 
@@ -14,7 +16,8 @@ is a small wrapper around the class that parses the command line arguments to in
 
 ## Environment variables
 
-Slacker will load configuration variables from environment variables. Slacker environment variables are:
+Slacker will load configuration variables from environment variables. Slacker
+environment variables are:
 
     SLACK_COMPANY
     SLACK_USERNAME
@@ -24,8 +27,9 @@ Slacker will load configuration variables from environment variables. Slacker en
 
 ## Configuration file(s)
 
-Slacker will also load configuration variables from files. The CLI by default will try to load `~/.slacker.cfg`
-and `./.slacker.cfg` by default. Here is a sample .slacker.cfg file:
+Slacker will also load configuration variables from files. The CLI by default
+will try to load `~/.slacker.cfg` and `./.slacker.cfg` by default. Here is a
+sample .slacker.cfg file:
 
     [slacker]
     username=my_clever_username
@@ -36,15 +40,16 @@ and `./.slacker.cfg` by default. Here is a sample .slacker.cfg file:
 
 # Class Usage
 
-The slacker [binary](bin/slacker) is very simple and is a good example to follow. Here's the simplest slacker example,
-which assumes that configuration has been done either via environment variables or a configuration file.
+The slacker [binary](bin/slacker) is very simple and is a good example to
+follow. Here's the simplest slacker example, which assumes that configuration
+has been done either via environment variables or a configuration file.
 
     import slacker
 
     s = slacker.Slacker()
     status, content = s.send('Hello, World!')
 
-# CLI Usage
+# CLI Help
 
     $ slacker --help
     usage: slacker [-h] [--config CONFIG] [--company COMPANY] [--channel CHANNEL]
@@ -71,3 +76,9 @@ which assumes that configuration has been done either via environment variables 
 
     The following environment variables may be also used: SLACK_COMPANY,
     SLACK_TOKEN, SLACK_CHANNEL, SLACK_USERNAME, SLACK_ICON
+
+# Example CLI usage
+
+    $ slacker -m 'Hello, world' # Assumes conf file or ENV variables have been set
+    $ slacker --company my_company --channel general --token aICln0wZDfQrhM2Jam2Hy3s2 --username mybot --icon ghost --message 'Hello, World!'
+    $ SLACK_CHANNEL=general slacker -m 'Use environment variables, too!'
