@@ -1,3 +1,5 @@
+# Copy this file to ~/.slacker.cfg and edit appropriately
+
 [slacker]
 username=my_clever_username
 company=company_name
