@@ -16,7 +16,7 @@ setup(
     description = ("A Slack module and CLI"),
     license = "MIT",
     keywords = "slack module API",
-    url = "http://foo/slackhook",
+    url = "https://github.com/pete0emerson/slackhook",
     packages=['lib'],
     scripts=['bin/slackhook'],
     long_description=read('README.md'),
