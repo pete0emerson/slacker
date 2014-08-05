@@ -1,0 +1,6 @@
+[slacker]
+username=my_clever_username
+company=company_name
+token=this_is_your_integration_token
+channel=#general
+icon=:ghost:
