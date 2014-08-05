@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name = "slackhook",
-    version = "0.0.4",
+    version = "0.1.0",
     author = "Pete Emerson",
     author_email = "pete@theemersons.org",
     description = ("A Slack module and CLI"),
