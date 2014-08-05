@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import argparse
+import slacker
+
+if __name__ == '__main__':
+  summary = """
+  one
+
+  two
+
+  three
+
+
+foo
+bar
+baz
+"""
+  parser = argparse.ArgumentParser(description='Slack CLI to Incoming WebHook', epilog='The following environment variables may be also used: SLACK_COMPANY, SLACK_TOKEN, SLACK_CHANNEL, SLACK_USERNAME, SLACK_ICON')
+  parser.add_argument('--config', '-c', type=str, help='Config file(s)', action='append')
+  parser.add_argument('--company', '-co', type=str, help='Company')
+  parser.add_argument('--channel', '-ch', type=str, help='Channel')
+  parser.add_argument('--token', '-t', type=str, help='Token')
+  parser.add_argument('--username', '-u', type=str, help='Username')
+  parser.add_argument('--icon', '-i', type=str, help='Emoji Icon')
+  parser.add_argument('--message', '-m', type=str, help='Message to send', required=True)
+
+  args = parser.parse_args()
+  if not args.config:
+    args.config = ['~/.slacker.cfg', './.slacker.cfg']
+  else:
+    for config_file in args.config:
+      if not os.access(config_file, os.R_OK):
+        print config_file, 'is not a readable file.'
+        sys.exit(1)
+  s = slacker.Slacker(company=args.company, channel=args.channel, username=args.username, icon=args.icon, token=args.token, config_files=args.config)
+  status, content = s.send(args.message)
+  if status == 200:
+    sys.exit(0)
+  else:
+    print content
+    sys.exit(status)

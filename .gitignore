@@ -1,0 +1,5 @@
+# virtualenv directory
+dev
+
+# Compiled python files
+*.pyc
